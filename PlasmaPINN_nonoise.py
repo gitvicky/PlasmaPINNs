@@ -4,11 +4,11 @@ Created on Mon Apr 5 09:14:10 2021
 
 @author: mathewsa
 """
-
+# %%
 import h5py
 import numpy as np
-
-save_directory = '/home/mathewsa/Plasma-PINN_manuscript_v0/no_noise/' #path to find files and save them
+import os 
+save_directory = os.getcwd()
 
 N_outputs = 1 #number of predictions made by each PINN
 timelen_end = 20.0 #training time (hours)
@@ -59,7 +59,7 @@ DiffX_norm = DiffX**2.
 DiffY_norm = DiffY**2.
 DiffZ_norm = DiffZ**2.
 
-data_file = str(save_directory)+'PlasmaPINN_data_inputs_paper.h5' 
+data_file = str(save_directory)+'/PlasmaPINN_data_inputs_paper.h5' 
 h5f = h5py.File(data_file, "r")
 x_x = h5f['x_x'].value 
 x_y = h5f['x_y'].value  
@@ -648,3 +648,4 @@ ax.set_ylabel('Loss')
 plt.legend()
 plt.tight_layout()
 plt.show()
+# %%
